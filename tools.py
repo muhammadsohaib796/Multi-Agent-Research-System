@@ -37,8 +37,16 @@ def scrape_url(url: str) -> str:
         return f"Could not scrape URL: {str(e)}"
 
 if __name__ == "__main__":
-    search_results = scrape_url.invoke({
-        "url": "https://en.wikipedia.org/wiki/Python_(programming_language)"
-    })
-
+    search_results = web_search.invoke("Multi Agent")
     print(search_results)
+
+
+    import re
+    urls = re.findall(r"URL:\s*(\S+)", search_results)
+
+    if urls:
+        first_url = urls[0]
+        print(f"\nScraping: {first_url}\n")
+        print(scrape_url.invoke(first_url))
+    else:
+        print("Koi URL nahi mila search results mein.")
