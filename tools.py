@@ -49,4 +49,4 @@ if __name__ == "__main__":
         print(f"\nScraping: {first_url}\n")
         print(scrape_url.invoke(first_url))
     else:
-        print("Koi URL nahi mila search results mein.")
+        print("Url not Found.")
