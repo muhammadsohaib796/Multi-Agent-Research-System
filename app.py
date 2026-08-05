@@ -260,11 +260,12 @@ else:
 
 st.write("")
 
-st.download_button(
-    "⬇ Download Research Report",
-    data=st.session_state.report,
-    file_name="research_report.md",
-    mime="text/markdown",
-    use_container_width=True,
-    disabled=not st.session_state.generated,
-)
+if st.session_state.generated:
+
+    st.download_button(
+        label="⬇ Download Research Report",
+        data=st.session_state.report,
+        file_name=f"{topic.replace(' ', '_')}_Research_Report.md",
+        mime="text/markdown",
+        use_container_width=True,
+    )
