@@ -1,5 +1,6 @@
 from langchain.agents import create_agent
-from langchain_google_genai import ChatGoogleGenerativeAI
+# from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from tools import web_search , scrape_url 
@@ -8,7 +9,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #model setup (Google AI Studio - free tier Gemini model)
-llm = ChatGoogleGenerativeAI(model="gemini-3.6-flash", temperature=0.7)
+llm = ChatOpenAI(
+    model="gemini-3.6-flash",
+    base_url="https://openrouter.ai/api/v1",
+    temperature=0.7
+)
 
 
 #1st agent 
