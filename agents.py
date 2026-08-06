@@ -10,7 +10,7 @@ load_dotenv()
 
 #model setup (Google AI Studio - free tier Gemini model)
 llm = ChatOpenAI(
-    model="gemini-3.6-flash",
+    model="deepseek/deepseek-chat-v3-0324:free",
     base_url="https://openrouter.ai/api/v1",
     temperature=0.7
 )
